@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+/* Appearance animation for achievements on level completion dialog */
+@keyframes achievement-appear {
+  0% { opacity: 0; transform: scale(0.6);}
+  40% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}

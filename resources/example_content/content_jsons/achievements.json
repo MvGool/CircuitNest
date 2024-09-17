@@ -1,0 +1,129 @@
+[
+    {
+        "name": "Een goed begin is het halve werk",
+        "description": "Voltooi het eerste level.",
+        "hint": "Probeer het eerste level te voltooien.",
+        "condition_type": "LEVEL_COMPLETION",
+        "level_id": "d1466865-c7bc-48b2-8621-8541f94d52c3"
+    },
+    {
+        "name": "Dat kon beter",
+        "description": "Voltooi een level met opnieuw.",
+        "hint": "Verbeter je score op een level.",
+        "condition_type": "LEVEL_RETRY"
+    },
+    {
+        "name": "Beter dan dit gaat niet",
+        "description": "Haal 3 sterren op een level.",
+        "hint": "1 of 2 sterren is niet genoeg.",
+        "condition_type": "LEVEL_COMPLETION",
+        "perfection_required": true
+    },
+    {
+        "name": "Logica beginner",
+        "description": "Voltooi het hoofdstuk 'Introductie'.",
+        "hint": "Er zijn nog levels te gaan in het 'Introductie' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "79885eb9-5ca6-460e-abbf-afd794f92d63"
+    },
+    {
+        "name": "Meester van de basis",
+        "description": "Behaal 3 sterren op alle levels in het hoofdstuk 'Introductie'.",
+        "hint": "Er is nog verbetering mogelijk in het 'Introductie' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "79885eb9-5ca6-460e-abbf-afd794f92d63",
+        "perfection_required": true
+    },
+    {
+        "name": "Logica leerling",
+        "description": "Voltooi het hoofdstuk 'Geavanceerde poorten'.",
+        "hint": "Er zijn nog levels te gaan in het 'Geavanceerde poorten' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82"
+    },
+    {
+        "name": "Meester van de geavanceerde poorten",
+        "description": "Behaal 3 sterren op alle levels in het hoofdstuk 'Geavanceerde poorten'.",
+        "hint": "Er is nog verbetering mogelijk in het 'Geavanceerde poorten' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82",
+        "perfection_required": true
+    },
+    {
+        "name": "Logica expert",
+        "description": "Voltooi het hoofdstuk 'Functionele volledigheid'.",
+        "hint": "Er zijn nog levels te gaan in het 'Functionele volledigheid' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82"
+    },
+    {
+        "name": "Functioneel compleet",
+        "description": "Behaal 3 sterren op alle levels in het hoofdstuk 'Functionele volledigheid'.",
+        "hint": "Er is nog verbetering mogelijk in het 'Functionele volledigheid' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82",
+        "perfection_required": true
+    },
+    {
+        "name": "Logica meester",
+        "description": "Voltooi het hoofdstuk 'Optellen'.",
+        "hint": "Er zijn nog levels te gaan in het 'Optellen' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82"
+    },
+    {
+        "name": "Menselijke rekenmachine",
+        "description": "Behaal 3 sterren op alle levels in het hoofdstuk 'Optellen'.",
+        "hint": "Er is nog verbetering mogelijk in het 'Optellen' hoofdstuk.",
+        "condition_type": "SCENARIO_COMPLETION",
+        "scenario_id": "4022c7b0-4489-4902-88fd-8ec243699f82",
+        "perfection_required": true
+    },
+    {
+        "name": "Ik zie mezelf staan",
+        "description": "Plaats in de top 10 op een van de ranglijsten.",
+        "hint": "Probeer beter te zijn dan de rest.",
+        "condition_type": "LEADERBOARD_POSITION",
+        "leaderboard_position": 10
+    },
+    {
+        "name": "Op het podium",
+        "description": "Plaats in de top 3 op een van de ranglijsten.",
+        "hint": "Verover een plek op het podium.",
+        "condition_type": "LEADERBOARD_POSITION",
+        "leaderboard_position": 3
+    },
+    {
+        "name": "Er is er maar een de beste",
+        "description": "Plaats eerste in een van de ranglijsten.",
+        "hint": "Er staat nog altijd iemand boven je.",
+        "condition_type": "LEADERBOARD_POSITION",
+        "leaderboard_position": 1
+    },
+    {
+        "name": "Kunnen we kinderen!",
+        "description": "Maak de tutorial af.",
+        "hint": "Volg eerst de volgende stappen van de tutorial.",
+        "condition_type": "TUTORIAL_COMPLETION"
+    },
+    {
+        "name": "Uiterlijk is zeer belangrijk",
+        "description": "Laat je avatar een item dragen.",
+        "hint": "Je outfit voelt wel erg kaal.",
+        "condition_type": "COSMETICS_EQUIPPED",
+        "cosmetics_equipped": 1
+    },
+    {
+        "name": "Alles voor de looks",
+        "description": "Draag 4 items tegelijkertijd.",
+        "hint": "Je outfit mist nog wat.",
+        "condition_type": "COSMETICS_EQUIPPED",
+        "cosmetics_equipped": 4
+    },
+    {
+        "name": "Volgensmij ben ik nu klaar",
+        "description": "Behaal alle achievements.",
+        "hint": "Er zijn nog dingen te doen en achievements te behalen.",
+        "condition_type": "ALL_ACHIEVEMENTS"
+    }
+]

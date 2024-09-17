@@ -1,0 +1,282 @@
+[
+    {
+        "title": "Half-adders",
+        "description": "Nu alle kennis over poorten is opgedaan, kunnen we ze samenvoegen tot nuttige circuits. Alle circuits die je tot nu toe gemaakt hebt waren ter oefening en hadden geen specifiek doel. Nu gaan we een circuit maken dat wel een specifiek doel heeft: een half-adder.",
+        "number": 0,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": [],
+        "level_type": "Information",
+        "content": "<p>Een half-adder, oftewel een 'halve opteller' in het Nederlands, is een circuit dat, zoals de naam al zegt, dingen optelt. Het werkt eigenlijk hetzelfde als optellen op de basisschool, alleen dan met binaire getallen (bits) in plaats van de decimale getallen die wij kennen.</p><p>Een simpel basisschool optelsom zou bijvoorbeeld zijn:</p><img src='carry_example.png' /><p>Let hier op de getallen die overblijven en bij de volgende kolom komen. Dit voelt heel simpel maar is precies hoe het werkt voor een computer. Omdat een computer alleen maar met 0'en en 1'en werkt, telt hij tot 2 in plaats van tot 10. Dit betekent dat als je 1 + 1 doet, je 10 krijgt. Dit is een binaire 2.</p><p>De half-adder is een circuit dat twee bits bij elkaar optelt en een carry bit genereert. De carry bit is de bit die overblijft en bij de volgende kolom komt. De half-adder heeft twee inputs, A en B, en twee outputs, S en C. S is de som van A en B, en C is de carry bit. Dit geeft de volgende waarheidstabel:</p><img src='half_adder_truth_table.png' /><p>De half-adder is een van de simpelste circuits die er zijn, en is een van de bouwstenen van alle andere circuits. Het is dus belangrijk dat je dit circuit goed begrijpt.</p>",
+        "guides": [
+            {
+                "title": "Half-adder",
+                "content": "<p>De half-adder is een circuit dat twee bits bij elkaar optelt en een carry bit genereert. De carry bit is de bit die overblijft en bij de volgende kolom komt. De half-adder heeft twee inputs, A en B, en twee outputs, S en C. S is de som van A en B, en C is de carry bit.</p>"
+            }
+        ]
+    },
+    {
+        "title": "Een half-adder bouwen",
+        "description": "Maak een half-adder met behulp van de waarheidstabel, succes!",
+        "number": 1,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Half-adders"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b"],
+        "outputs": ["S", "C"],
+        "truth_table": [
+            [false, false, false, false],
+            [false, true, true, false],
+            [true, false, true, false],
+            [true, true, false, true]
+        ],
+        "boolean_function": "S = a ^ b, C = a & b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"],
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"],
+                        "type": "AND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "S",
+                    "label": "S",
+                    "input": "a_xor_b"
+                },
+                {
+                    "name": "C",
+                    "label": "C",
+                    "input": "a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "Full-adders",
+        "description": "Met de basis van een half-adder, kunnen we hem compleet maken tot een volledige full-adder.",
+        "number": 2,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Een half-adder bouwen"],
+        "level_type": "Information",
+        "content": "<p>Een full-adder, oftewel een 'volledige opteller' in het Nederlands, is een uitbreiding op de half-adder. Het grote verschil ertussen is dat een full-adder een extra input heeft, dit is voor de carry bit. Nu hebben we dus 3 inputs, 2 voor de input getallen en nog een voor de input carry bit. Wat de full-adder eigenlijk doet is 3 bits optellen in tegenstelling tot de 2 bits die een half-adder optelt. Wel zijn er weer twee outputs, de som (aangeduid met S) en de carry (aangeduid met C), maar dan van 3 getallen. De waarheidstabel hieronder geeft aan wat hij precies doet:</p><img src='full_adder_truth_table.png' /><p>Zoals je kan zien in de waarheidstabel is het een grote optelsom. Als 0 van de bits waar is dan is dan is de som en carry ook 0, als 1 van de bits waar is dan is alleen de som waar, als 2 van de bits waar zijn dan is alleen de carry waar en als alle 3 de bits waar zijn dan is de som en carry waar. Dit is een stuk complexer dan de half-adder, maar het principe blijft hetzelfde.</p><p>Waarom is deze full-adder belangrijk? Dit is omdat je met deze full-adder een oneindig aantal bits kan optellen. Dit is de basis van alle optelcircuits in een computer. Elke rekensom die je ooit op een computer of rekenmachine uitvoert gebruikt exact dit circuit.</p>",
+        "guides": [
+            {
+                "title": "Full-adder",
+                "content": "<p>Een full-adder is een uitbreiding op de half-adder. Het grote verschil ertussen is dat een full-adder een extra input heeft, dit is voor de carry bit. Nu hebben we dus 3 inputs, 2 voor de input getallen en nog een voor de input carry bit. Wat de full-adder eigenlijk doet is 3 bits optellen in tegenstelling tot de 2 bits die een half-adder optelt. Wel zijn er weer twee outputs, de som (aangeduid met S) en de carry (aangeduid met C), maar dan van 3 getallen.</p>"
+            }
+        ]
+    },
+    {
+        "title": "Een full-adder bouwen",
+        "description": "Maak nu een full-adder met behulp van de waarheidstabel, succes!",
+        "number": 3,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Full-adders"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "Cin"],
+        "outputs": ["S", "Cout"],
+        "truth_table": [
+            [false, false, false, false, false],
+            [false, false, true,  true,  false],
+            [false, true,  false, true,  false],
+            [false, true,  true,  false, true],
+            [true,  false, false, true,  false],
+            [true,  false, true,  false, true],
+            [true,  true,  false, false, true],
+            [true,  true,  true,  true,  true]
+        ],
+        "boolean_function": "S = a ^ b ^ Cin, Cout = a & b | Cin & (a ^ b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a"
+                },
+                {
+                    "name": "b",
+                    "label": "b"
+                },
+                {
+                    "name": "Cin",
+                    "label": "Cin"
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"],
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b_xor_Cin",
+                        "inputs": ["a_xor_b", "Cin"],
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "a_xor_b_and_Cin",
+                        "inputs": ["a_xor_b", "Cin"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_b_or_a_xor_b_and_Cin",
+                        "inputs": ["a_xor_b_and_Cin", "a_and_b"],
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "S",
+                    "label": "S",
+                    "input": "a_xor_b_xor_Cin"
+                },
+                {
+                    "name": "Cout",
+                    "label": "Cout",
+                    "input": "a_and_b_or_a_xor_b_and_Cin"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 240
+    },
+    {
+        "title": "Twee 2-bit nummers optellen",
+        "description": "Nu je een full-adder hebt gemaakt, kan je deze gebruiken om twee 2-bit nummers bij elkaar op te tellen. Dit is een stuk complexer dan alle vorige opdrachten en zal een groot circuit worden. Ter referentie is de full-adder links gegeven in plaats van de waarheidstabel omdat de tabel veel te groot zou zijn. Gebruik het basisschool rekenen en maak een circuit dat twee 2-bit nummers bij elkaar optelt. De input A0 en A1 zijn de eerste en tweede bit van getal A, zelfde geldt voor B en S. Heel veel succes!",
+        "number": 4,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Een full-adder bouwen"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["A1", "B1", "A0", "B0"],
+        "outputs": ["C", "S1", "S0"],
+        "truth_table": [
+            [false, false, false, false, false, false, false],
+            [false, false, false, true,  false, false, true],
+            [false, false, true,  false, false, false, true],
+            [false, false, true,  true,  false, true,  false],
+            [false, true,  false, false, false, true,  false],
+            [false, true,  false, true,  false, true,  true],
+            [false, true,  true,  false, false, true,  true],
+            [false, true,  true,  true,  true,  false, false],
+            [true,  false, false, false, false, true,  false],
+            [true,  false, false, true,  false, true,  true],
+            [true,  false, true,  false, false, true,  true],
+            [true,  false, true,  true,  true,  false, false],
+            [true,  true,  false, false, true,  false, false],
+            [true,  true,  false, true,  true,  false, true],
+            [true,  true,  true,  false, true,  false, true],
+            [true,  true,  true,  true,  true,  true,  false]
+        ],
+        "boolean_function": "Nope, dit is te complex voor een boolean functie. Gebruik de waarheidstabel om het circuit te maken.",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a"
+                },
+                {
+                    "name": "b",
+                    "label": "b"
+                },
+                {
+                    "name": "Cin",
+                    "label": "Cin"
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"],
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b_xor_Cin",
+                        "inputs": ["a_xor_b", "Cin"],
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "a_xor_b_and_Cin",
+                        "inputs": ["a_xor_b", "Cin"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_b_or_a_xor_b_and_Cin",
+                        "inputs": ["a_xor_b_and_Cin", "a_and_b"],
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "S",
+                    "label": "S",
+                    "input": "a_xor_b_xor_Cin"
+                },
+                {
+                    "name": "Cout",
+                    "label": "Cout",
+                    "input": "a_and_b_or_a_xor_b_and_Cin"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 600
+    }
+]

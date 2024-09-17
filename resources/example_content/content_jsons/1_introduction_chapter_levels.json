@@ -1,0 +1,584 @@
+[
+    {
+        "title": "Waarheidstabellen",
+        "description": "Dit eerste level leert je het concept van een waarheidstabel en hoe je deze moet lezen. Deze kennis is essentieel voor de rest van de module.",
+        "number": 0,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": [],
+        "level_type": "Information",
+        "content": "<p>Voordat we naar de complexere onderwerpen gaan, is het belangrijk om de basis van logica te begrijpen. Het is namelijk een belangrijk onderdeel van de informatica, omdat het de basis vormt van computers en software. In deze module zullen we de basisbegrippen van logica behandelen, zoals waarheidstabellen, logische poorten en logische circuits. </p><p>Laten we beginnen bij de basis: Waarheidstabellen. Een waarheidstabel is een tabel die alle mogelijke waarden van een logische expressie weergeeft. Een tabel heeft links altijd de mogelijke waarden van de inputvariabelen en rechts de bijbehorende waarden van de outputvariabelen. De figuur hieronder geeft een voorbeeld van een waarheidstabel:</p><img src='truth_table_example.png' alt='Truth table' /><p>In deze waarheidstabel zijn er twee inputvariabelen, <i>a</i> en <i>b</i>, en één outputvariabele, <i>p</i>. De tabel laat zien dat de outputvariabele <i>p</i> de waarde 1 heeft als <i>a</i> en <i>b</i> beide 1 zijn, en anders de waarde 0. </p><p>Zoals jullie waarschijnlijk al weten betekenen de getallen 1 en 0 respectievelijk 'waar' en 'onwaar' en worden deze aangeduid met een zogenoemd 'hoog' en 'laag' signaal. In een logisch circuit worden deze getallen gebruikt om aan te geven of er stroom door een circuit loopt of niet. Een logisch circuit doet namelijk niet meer dan een aantal stroomsignalen combineren en verwerken. Dit gebeurt met behulp van logische poorten waar je later meer over zult leren.</p>" ,
+        "guides": [
+            {
+                "title": "Waarheidstabellen",
+                "content": "<p>Een waarheidstabel is een tabel die links de inputs heeft en rechts de outputs. Voor elke configuratie van inputs wordt in diezelfde rij de bijbehorende configuratie van de outputs getoond.</p>"
+            }
+        ]
+    },
+    {
+        "title": "Logisch 'circuit'",
+        "description": "In dit level ga je het meest eenvoudige circuit maken, namelijk een enkele verbinding tussen de input en output.",
+        "number": 1,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Waarheidstabellen"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": [],
+        "inputs": ["a"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false],
+            [true, true]
+        ],
+        "boolean_function": "p = a",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                }
+            ],
+            "gates": [
+                []
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "Logisch 'circuit' uitbreiding",
+        "description": "Net als het vorige level zijn hier alleen maar rechtstreekse verbindingen tussen de inputs en outputs. Dit keer zijn er meerdere inputs en outputs, koppel de juiste input aan de juiste output volgens de waarheidstabel.",
+        "number": 2,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Logisch 'circuit'"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": [],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p", "q", "r"],
+        "truth_table": [
+            [false, false, false, false, false, false],
+            [false, false, true, false, true, false],
+            [false, true, false, true, false, false],
+            [false, true, true, true, true, false],
+            [true, false, false, false, false, true],
+            [true, false, true, false, true, true],
+            [true, true, false, true, false, true],
+            [true, true, true, true, true, true]
+
+        ],
+        "boolean_function": "p = b\nq = c\nr = a",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                []
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "b"
+                },
+                {
+                    "name": "q",
+                    "label": "q",
+                    "input": "c"
+                },
+                {
+                    "name": "r",
+                    "label": "r",
+                    "input": "a"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "De AND, OR en NOT poorten",
+        "description": "Dit level leert je de basis van de AND, OR en NOT poorten. In de komende levels ga je waarheidstabellen en een circuit hiermee maken.",
+        "number": 3,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Logisch 'circuit' uitbreiding"],
+        "level_type": "Information",
+        "content": "<p>Nu je weet hoe een waarheidstabel werkt, kunnen we beginnen met de eerste logische poorten. Dit zijn de AND-, OR-, en NOT-poorten.</p><h4>AND-poort</h4><p>De AND-poort is een poort die twee inputs heeft en een output. De output is alleen hoog als beide inputs hoog zijn. Als een van de inputs laag is, is de output ook laag. De AND-poort ziet er als volgt uit:</p><img src='AND-gate.png' alt='AND-poort' /><h4>OR-poort</h4><p>De OR-poort is een poort die twee inputs heeft en een output. De output is hoog als een van de inputs hoog is. Dus alleen als beide inputs laag zijn, is de output ook laag. De OR-poort ziet er als volgt uit:</p><img src='OR-gate.png' alt='OR-poort' /><h4>NOT-poort</h4><p>De NOT-poort is een poort die één input heeft en een output. De output is het tegenovergestelde van de input. Als de input hoog is, is de output laag en andersom. De NOT-poort ziet er als volgt uit:</p><img src='NOT-gate.png' alt='NOT-poort' />", 
+        "guides": [
+            {
+                "title": "AND-poort",
+                "content": "<img src='AND-gate.png' /><p>De AND poort is een poort die alleen een hoog signaal geeft als beide ingangen hoog zijn.</p>"
+            },
+            {
+                "title": "OR-poort",
+                "content": "<img src='OR-gate.png' /><p>De OR poort is een poort die een hoog signaal geeft als een van de ingangen hoog is.</p>"
+            },
+            {
+                "title": "NOT-poort",
+                "content": "<img src='NOT-gate.png' /><p>De NOT poort geeft het tegenover gestelde van wat er in komt, een hoog signaal wordt laag en andersom.</p>"
+            }
+        ]
+    },
+    {
+        "title": "AND poort",
+        "description": "In dit level ga je aan de slag met een AND poort. Klik op de inputs van het circuit om het signaal te veranderen. Vul de juiste waarheidstabel in en lever in om het level te voltooien!",
+        "number": 4,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["De AND, OR en NOT poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["AND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, false],
+            [true, false, false],
+            [true, true, true]
+        ],
+        "boolean_function": "p = a & b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"], 
+                        "type": "AND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "OR poort",
+        "description": "In dit level ga je aan de slag met een OR poort. Klik op de inputs van het circuit om het signaal te veranderen. Vul de juiste waarheidstabel in en lever in om het level te voltooien!",
+        "number": 5,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["De AND, OR en NOT poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["OR"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, true],
+            [true, false, true],
+            [true, true, true]
+        ],
+        "boolean_function": "p = a | b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_or_b",
+                        "inputs": ["a", "b"], 
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_or_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "NOT poort",
+        "description": "In dit level ga je aan de slag met een NOT poort. Klik op de inputs van het circuit om het signaal te veranderen. Vul de juiste waarheidstabel in en lever in om het level te voltooien!",
+        "number": 6,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["De AND, OR en NOT poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["NOT"],
+        "inputs": ["a"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, true],
+            [true, false]
+        ],
+        "boolean_function": "p = !a",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a"], 
+                        "type": "NOT"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "Poorten combineren",
+        "description": "Dit level maakt gebruik van de AND, OR en NOT poorten om te laten zien hoe je ze kan combineren. In de komende levels ga je circuits maken doormiddel van meerdere logische poorten net als dat hier wordt uitgelegd.",
+        "number": 7,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["AND poort", "OR poort", "NOT poort"],
+        "level_type": "Information",
+        "content": "<p>Met de eerste logische poorten achter de rug, is het tijd om te kijken hoe je deze poorten kan combineren, met een enkele poort ben je namelijk heel erg gelimiteerd.</p><h4>AND-poort en NOT-poort combineren</h4><p>Neem als voorbeeld de AND-poort, deze heeft de volgende waarheidstabel:</p><img src='AND-gate_truth_table.png' alt='Waarheidstabel van de AND-poort' /><p><i>p</i> is waar als beide <i>a</i> en <i>b</i> waar zijn. Maar wat als je wilt dat <i>p</i> alleen waar is als <i>a</i> waar is en <i>b</i> juist niet waar is? Dit kan je doen door een NOT-poort toe te voegen.</p><p>We willen hier het volgende: '<i>p</i> is waar als <i>a</i> waar is EN <i>b</i> NIET waar is'. Als je het in woorden uit drukt zie je al dat er een AND-poort en NOT-poort nodig zijn. Het volgende circuit laat zien hoe dit circuit er uit zou zien:</p><img src='AND_NOT_circuit.png' alt='Circuit met AND en NOT poort' /><p>De NOT-poort zorgt er voor dat <i>b</i> omgedraaid wordt en de AND-poort zorgt er voor dat <i>p</i> alleen waar is als <i>a</i> waar is EN <i>b</i> NIET waar is. Dit is een simpel voorbeeld van hoe je poorten kan combineren om complexere circuits te maken.</p></br><h4>OR-poort voorbeeld</h4><p>Zoals je weet is een OR-poort waar als een van de inputs waar is maar stel je heb een situatie zoals de volgende:</p><img src='OR-gate_example_truth_table.png' alt='Waarheidstabel van de OR-poort' /><p>Hier is <i>p</i> waar als <i>a</i> niet waar is maar ook als <i>b</i> niet waar is. Oftewel '<i>p</i> is waar als <i>a</i> NIET waar is OF <i>b</i> NIET waar is'. Dit kan je doen door een NOT-poort toe te voegen aan beide inputs en deze dan te combineren met een OR-poort. Het circuit ziet er dan als volgt uit:</p><img src='OR_NOT_circuit.png' alt='Circuit met OR en NOT poort' /><p>Heel veel succes met het combineren van poorten!</p>",
+        "guides": []
+    },
+    {
+        "title": "Met 1 poort kom je er niet",
+        "description": "In dit level ga je een circuit bouwen met de poorten die je net hebt geleerd. Probeer te bedenken hoe de inputs en de output gerelateerd zijn aan elkaar en bouw het circuit volgens de waarheidstabel om het level te voltooien!\n\nTip: Het kan helpen om in woorden (met 'en', 'of', en 'niet') te vertalen wat de waarheidstabel betekent en welke poorten je nodig hebt om dit te bereiken. Bijvoorbeeld: 'p is waar als a EN c waar zijn' of 'p is waar als a waar is EN b NIET waar is'. Dit geeft je een goed idee van welke poorten je nodig hebt en hoe je ze moet verbinden.",
+        "number": 8,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Poorten combineren"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["AND","OR","NOT"],
+        "inputs": ["a","b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, true],
+            [true, false, false],
+            [true, true, false]
+        ],
+        "boolean_function": "p = !a & b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a"], 
+                        "type": "NOT"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_and_b",
+                        "inputs": ["not_a", "b"], 
+                        "type": "AND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 30
+    },
+    {
+        "title": "Circuit met 3 lagen",
+        "description": "Net heb je geleerd hoe je poorten kan combineren om complexere circuits te maken. Dit level doet hetzelfde maar dan net een stap verder. Dit circuit is niet te maken met minder dan 3 opeenvolgende poorten. Probeer weer in woorden uit te drukken wat de waarheidstabel betekent en welke poorten je nodig hebt om dit te bereiken. Succes!",
+        "number": 9,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Met 1 poort kom je er niet"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["AND","OR","NOT"],
+        "inputs": ["a","b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, false],
+            [true, false, false],
+            [true, true, true]
+        ],
+        "boolean_function": "p = !a & !b | a & b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a"], 
+                        "type": "NOT"
+                    },
+                    {
+                        "name": "not_b",
+                        "inputs": ["b"], 
+                        "type": "NOT"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_and_not_b",
+                        "inputs": ["not_a", "not_b"], 
+                        "type": "AND"
+                    },
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"], 
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_and_not_b_or_a_and_b",
+                        "inputs": ["not_a_and_not_b", "a_and_b"], 
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_and_not_b_or_a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "Niet 1 maar 2 outputs",
+        "description": "Er zijn situaties waar je met dezelfde inputs meerdere outputs wil hebben. In zo'n geval staan de outputs vaak los van elkaar en hebben ze geen invloed op elkaar. In zo'n geval kan je de outputs los van elkaar berekenen. Probeer dit level te voltooien door de waarheidstabel in te vullen en het circuit te bouwen!",
+        "number": 10,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Met 1 poort kom je er niet"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["AND","OR","NOT"],
+        "inputs": ["a","b"],
+        "outputs": ["p","q"],
+        "truth_table": [
+            [false, false, false, true],
+            [false, true, false, false],
+            [true, false, true, true],
+            [true, true, false, false]
+        ],
+        "boolean_function": "p = a & !b\nq = !b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_b",
+                        "inputs": ["b"], 
+                        "type": "NOT"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_not_b",
+                        "inputs": ["a", "not_b"], 
+                        "type": "AND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_and_b"
+                },
+                {
+                    "name": "q",
+                    "label": "q",
+                    "input": "not_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 30
+    },
+    {
+        "title": "Een echt complex logisch circuit",
+        "description": "Nu je weet hoe je met de AND, OR en NOT poorten om moet gaan, is het tijd om een iets complexer circuit te maken. Dit circuit bevat alle drie de poorten en heeft drie inputs en twee outputs. Let op, dit level is een 'challenge' level en zal je dus geen hint geven over wat er precies fout is met je circuit. Gebruik de interactie van het circuit om zelf je fouten op te sporen. Veel succes!\n\nTip: Probeer de kennis van afgelopen levels toe te passen en het stap voor stap aan te pakken.",
+        "number": 11,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Circuit met 3 lagen", "Niet 1 maar 2 outputs"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["AND", "OR", "NOT"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p", "q"],
+        "truth_table": [
+            [false, false, false, false, true],
+            [false, false, true, false, true],
+            [false, true, false, false, true],
+            [false, true, true, false, true],
+            [true, false, false, false, false],
+            [true, false, true, true, false],
+            [true, true, false, false, true],
+            [true, true, true, true, true]
+        ],
+        "boolean_function": "p = a & c\nq = !a | b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a"], 
+                        "type": "NOT"
+                    },
+                    {
+                        "name": "a_and_c",
+                        "inputs": ["a", "c"], 
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_or_b",
+                        "inputs": ["not_a", "b"], 
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_c"
+                },
+                {
+                    "name": "q",
+                    "label": "q",
+                    "input": "not_a_or_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 90
+    }
+]

@@ -1,0 +1,55 @@
+[
+    {
+        "title": "",
+        "description": "",
+        "number": 0,
+        "scenario_id": "",
+        "active": true,
+        "prerequisites": [], // list of exercise ids or titles
+        "level_type": "Information",
+        "content": "" // html content
+    },
+    {
+        "title": "",
+        "description": "",
+        "number": 0,
+        "scenario_id": "",
+        "active": true,
+        "prerequisites": [], // list of exercise ids or titles
+        "level_type": "Exercise",
+        "start_type": "",
+        "end_type": "",
+        "challenge": false, // if true, the user must complete the exercise without feedback
+        "gates": [],
+        "inputs": [],
+        "outputs": [],
+        "truth_table": [[]], // 2D array
+        "boolean_function": "",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "",
+                    "label": "" // label to show in the visualization
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "",
+                        "inputs": [], // names of inputs, can be inputs or other gates
+                        "type": "" // AND, OR, NOT, XOR, NAND, NOR, XNOR
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "",
+                    "label": "", // label to show in the visualization
+                    "input": "" // name of input, can be gate or input
+                }
+            ]
+        },
+        "code": "None", // verilog code, not used in current version
+        "time_goal": 0
+    }
+]

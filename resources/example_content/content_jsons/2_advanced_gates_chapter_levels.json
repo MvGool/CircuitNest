@@ -1,0 +1,786 @@
+[
+    {
+        "title": "NAND en NOR poorten",
+        "description": "We beginnen dit hoofdstuk door de NAND en NOR poorten te behandelen. Deze poorten zijn variaties op de al bekende AND en OR poorten.",
+        "number": 0,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": [],
+        "level_type": "Information",
+        "content": "<p>Met de basis achter de rug gaan we door naar de NAND- en NOR-poorten.</p><h4>NAND-poort</h4><p>De NAND-poort staat voor Not-AND en is het tegenovergestelde van de AND-poort. De uitgang van de NAND-poort is laag als beide ingangen hoog zijn. In het geval dat een van de ingangen laag is is de uitgang ook hoog. De NAND-poort ziet er als volgt uit:</p><img src='NAND-gate.png' alt='NAND-poort' /><h4>NOR-poort</h4><p>De NOR-poort staat voor Not-OR en is het tegenovergestelde van de OR-poort. De uitgang van de NOR-poort is laag als een van de ingangen hoog is. In het geval dat beide ingangen laag zijn is de uitgang hoog. De NOR-poort ziet er als volgt uit:</p><img src='NOR-gate.png' alt='NOR-poort' />",
+        "guides": [
+            {
+                "title": "NAND-poort",
+                "content": "<img src='NAND-gate.png' /><p>De NAND-poort is het tegenoverstelde van de AND-poort. Het signaal is hoog in elk geval behalve als beide ingangen hoog zijn.</p>"
+            },
+            {
+                "title": "NOR-poort",
+                "content": "<img src='NOR-gate.png' /><p>De NOR-poort is het tegenoverstelde van de OR-poort. Het signaal is hoog in het geval dat beide ingangen laag zijn.</p>"
+            }
+        ]
+    },
+    {
+        "title": "NAND poort",
+        "description": "In dit level maak je kennis met de NAND poort. Vul weer de waarheidstabel in zodat hij de werking van de NAND poort beschrijft.",
+        "number": 1,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["NAND en NOR poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, true],
+            [true, false, true],
+            [true, true, false]
+        ],
+        "boolean_function": "p = !(a & b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a_and_b",
+                        "inputs": ["a", "b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "NOR poort",
+        "description": "In dit level maak je kennis met de NOR poort. Vul weer de waarheidstabel in zodat hij de werking van de NOR poort beschrijft.",
+        "number": 2,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["NAND en NOR poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["NOR"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, false],
+            [true, false, false],
+            [true, true, false]
+        ],
+        "boolean_function": "p = !(a | b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a_or_b",
+                        "inputs": ["a", "b"],
+                        "type": "NOR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_or_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "NOT-poort zonder NOT-poort",
+        "description": "In dit level maak je een NOT-poort zonder de NOT-poort te gebruiken. Dit is een goede oefening om te kijken of je de werking van de NAND en NOR poorten begrijpt. Probeer het zo simpel mogelijk te houden!",
+        "number": 3,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["NAND poort", "NOR poort"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["NAND", "NOR"],
+        "inputs": ["a"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, true],
+            [true, false]
+        ],
+        "boolean_function": "p = !(a & a)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nand_a",
+                        "inputs": ["a", "a"], 
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_nand_a"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "Circuit met NAND en NOR poorten",
+        "description": "In dit level maak je een circuit met alleen maar NAND en NOR poorten.\n\nTip: Gebruik de kennis van het vorige level om een NOT-poort te simuleren.",
+        "number": 4,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["NOT-poort zonder NOT-poort"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["NAND", "NOR"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p", "q"],
+        "truth_table": [
+            [false, false, false, false, true],
+            [false, false, true, false, false],
+            [false, true, false, false, false],
+            [false, true, true, false, false],
+            [true, false, false, false, true],
+            [true, false, true, true, false],
+            [true, true, false, false, false],
+            [true, true, true, true, false]
+        ],
+        "boolean_function": "p = a & c\nq = !(b | c)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nand_c",
+                        "inputs": ["a", "c"], 
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "b_nor_c",
+                        "inputs": ["b", "c"], 
+                        "type": "NOR"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_c",
+                        "inputs": ["a_nand_c", "a_nand_c"], 
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_c"
+                },
+                {
+                    "name": "q",
+                    "label": "q",
+                    "input": "b_nor_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "XOR en XNOR poorten",
+        "description": "Hier leer je over de laatste logische poorten, de XOR en XNOR. Met deze poorten het je de volledige set aan logische poorten!",
+        "number": 5,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Zelfde als eerst, maar nu met NAND en NOR"],
+        "level_type": "Information",
+        "content": "<p>We zijn alweer bij de laatste logische poorten aangekomen, de XOR- en XNOR-poort.</p><h4>XOR-poort</h4><p>De XOR-poort staat voor eXclusive-OR en lijkt op de OR-poort. Het verschil is dat de uitgang van de XOR-poort hoog is als slechts 1 van de ingangen hoog is. In het geval dat geen of beide van de ingangen hoog is is de uitgang laag. De XOR-poort ziet er als volgt uit:</p><img src='XOR-gate.png' alt='XOR-poort' /><h4>XNOR-poort</h4><p>De XNOR-poort staat voor eXclusive-Not-OR en is het tegenovergestelde van de XOR-poort. De uitgang van de XNOR-poort is hoog als geen of beide van de ingangen hoog zijn. In het geval dat de ingangen hoog en laag zijn is de uitgang laag. In andere woorden, deze poort kijkt of beide ingangen hetzelfde zijn. De XNOR-poort ziet er als volgt uit:</p><img src='XNOR-gate.png' alt='XNOR-poort' />",
+        "guides": [
+            {
+                "title": "XOR-poort",
+                "content": "<img src='XOR-gate.png' /><p>De XOR-poort is een variatie van de OR-poort. Het signaal is hoog in het geval dat slechts 1 van de ingangen hoog is. Dus niet allebei.</p>"
+            },
+            {
+                "title": "XNOR-poort",
+                "content": "<img src='XNOR-gate.png' /><p>De XNOR-poort is het tegenovergestelde van de XOR-poort. Het signaal is hoog in het geval dat beide ingangen hetzelfde zijn.</p>"
+            }
+        ]
+    },
+    {
+        "title": "XOR poort",
+        "description": "In dit level maak je kennis met de XOR poort. Zoals ondertussen bekend is, vul je de waarheidstabel in zodat hij de werking van de XOR poort beschrijft.",
+        "number": 5,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["XOR en XNOR poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["XOR"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, true],
+            [true, false, true],
+            [true, true, false]
+        ],
+        "boolean_function": "p = a ^ b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"],
+                        "type": "XOR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_xor_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "XNOR poort",
+        "description": "In dit level maak je kennis met de XNOR poort. Zoals ondertussen bekend is, vul je weer de waarheidstabel in zodat hij de werking van de XOR poort beschrijft.",
+        "number": 6,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["XOR en XNOR poorten"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["XNOR"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, false],
+            [true, false, false],
+            [true, true, true]
+        ],
+        "boolean_function": "p = !(a ^ b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a_xor_b",
+                        "inputs": ["a", "b"],
+                        "type": "XNOR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a_xor_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 10
+    },
+    {
+        "title": "Alle poorten samen",
+        "description": "Nu je alle poorten kent komen ze allemaal samen in dit level. Dit is een goede test om te kijken of je alle poorten begrijpt en kan toepassen. En zoals eerder vermeld, er zijn meerdere manieren om een circuit te maken!\n\nTip 1: Niet elke poort is nodig, probeer het zo simpel mogelijk te houden.\n\nTip 2: Je kan meerdere poorten van hetzelfde type na elkaar gebruiken om meerdere ingangen te simuleren, bijvoorbeeld: (a AND b) AND c.",
+        "number": 7,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["XOR poort", "XNOR poort"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false, true],
+            [false, false, true, true],
+            [false, true, false, false],
+            [false, true, true, false],
+            [true, false, false, false],
+            [true, false, true, false],
+            [true, true, false, false],
+            [true, true, true, true]
+        ],
+        "boolean_function": "p = !(a | b) | (a & b & c)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nor_b",
+                        "inputs": ["a", "b"],
+                        "type": "NOR"
+                    },
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a", "b"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_b_and_c",
+                        "inputs": ["a_and_b", "c"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_nor_b_or_a_and_b_and_c",
+                        "inputs": ["a_nor_b", "a_and_b_and_c"],
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_nor_b_or_a_and_b_and_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "Booleaanse algebra",
+        "description": "Hier leer je over de basis van de Booleaanse algebra. Dit is een wiskundige notatie die gebruikt wordt om logische bewerkingen uit te voeren en te beschrijven. Als dit onder de knie is zal je zien dat het veel makkelijker is om met complexe logica te werken!",
+        "number": 8,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Alle poorten samen"],
+        "level_type": "Information",
+        "content": "<p>Als laatste onderwerp van dit hoofdstuk gaan we het hebben over Booleaanse algebra. Booleaanse algebra is een wiskundige notatie die gebruikt wordt om logische bewerkingen uit te voeren. Deze algebra is vernoemd naar de Engelse wiskundige George Boole. Doormiddel van deze algebra is het mogelijk om logische circuits volledig te beschrijven in een wiskundige vorm. Dit maakt het mogelijk om hier net als bij andere wiskundige formules mee te rekenen.</p><p>Omdat de Booleaanse algebra een wiskundige notatie is, zijn er een aantal regels die gevolgd moeten worden. Om het simpel te houden worden deze onderaan uitgelegd maar deze zijn niet nodig voor de komende levels.</p><p>Wat wel belangrijk is om te weten is de notatie van de Booleaanse algebra. Ondertussen heb je al kennis gemaakt met alle logische poorten die er zijn. Deze poorten kunnen in de Booleaanse algebra worden weergegeven als symbolen. Hieronder zie je een overzicht van de symbolen die bij de logische poorten horen:</p><table style='border-collapse: collapse; text-align: center;'><tr><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Logische poort</th><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Logisch symbool</th><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Java Boolean</th><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Java bitwise</th><th style='border-bottom: 1px solid black; padding: 4px;'>Algebraïsch symbool</th></tr><tr><td style='padding: 4px;'>NOT</td><td style='padding: 4px;'>&#x00AC; a</td><td style='padding: 4px;'>!a</td><td style='padding: 4px;'>~a</td><td style='padding: 4px;'>a'</td></tr><tr><td style='padding: 4px;'>AND</td><td style='padding: 4px;'>a &#x2227; b</td><td style='padding: 4px;'>a && b</td><td style='padding: 4px;'>a & b</td><td style='padding: 4px;'>a &#x22C5; b</td></tr><tr><td style='padding: 4px;'>OR</td><td style='padding: 4px;'>a &#x2228; b</td><td style='padding: 4px;'>a || b</td><td style='padding: 4px;'>a | b</td><td style='padding: 4px;'>a + b</td></tr><tr><td style='padding: 4px;'>XOR</td><td style='padding: 4px;'>a &#x2295; b</td><td style='padding: 4px;'>a ^ b</td><td style='padding: 4px;'>a ^ b</td><td style='padding: 4px;'>a &#x2295; b</td></tr></table><p>Nou staan hierboven een hoop verschillende notaties, elk heeft zijn voor en nadelen en wordt in een andere situatie gebruikt. Gelukkig betekenen ze allemaal hetzelfde. Voor deze reden zal je hier alleen de eerste notatie (logische symbolen) gebruiken.</p><p>Een Booleaanse algebra formule bestaat uit variabelen (zoals a en b in de tabel) en logische operatoren (zoals &#x00AC;, &#x2227;, &#x2228; en &#x2295;). Deze formules kunnen worden gebruikt om logische bewerkingen uit te voeren. Hieronder zie je een voorbeeld van een Booleaanse algebra formule:</p><blockquote>p = (a &#x2227; b) &#x2228; c</blockquote><p>Deze formule betekent dat als a en b beide waar zijn, of c waar is, dan is p waar. Als a en b niet beide waar zijn, en c niet waar is, dan is p niet waar. Dit zou de volgende waarheidstabel geven:</p><img src='boolean_truth_table_example.png' alt='Voorbeeld waarheidstabel' /><p>In het geval van een logisch circuit kan je deze formules gebruiken om de werking van het circuit te beschrijven zoals je in het volgende level gaat oefenen. Dit maakt het mogelijk om de werking van een circuit te beschrijven zonder dat je het circuit zelf hoeft te zien. Dit is handig omdat je zo kan zien of een circuit werkt zonder dat je het circuit zelf hoeft te bouwen. Ook is een formule een stuk overzichtelijker in het geval van complexe logica.</p><br/><p>Hoewel het niet nodig is voor de komende levels, zijn hier de regels van de Booleaanse algebra voor de geinteresseerden:</p><ul><li>Commutativiteit: <ul><li>a &#x2227; b = b &#x2227; a</li><li>a &#x2228; b = b &#x2228; a</li></ul></li><li>Associativiteit: <ul><li>(a &#x2227; b) &#x2227; c = a &#x2227; (b &#x2227; c)</li><li>(a &#x2228; b) &#x2228; c = a &#x2228; (b &#x2228; c)</li></ul></li><li>Distributiviteit: <ul><li>a &#x2227; (b &#x2228; c) = (a &#x2227; b) &#x2228; (a &#x2227; c)</li><li>a &#x2228; (b &#x2227; c) = (a &#x2228; b) &#x2227; (a &#x2228; c)</li></ul></li><li>Absorptie: <ul><li>a &#x2227; (a &#x2228; b) = a</li><li>a &#x2228; (a &#x2227; b) = a</li></ul></li><li>Complement: <ul><li>a &#x2227; &#x00AC; a = 0</li><li>a &#x2228; &#x00AC; a = 1</li></ul></li><li>Regels van De Morgan: <ul><li>&#x00AC; (a &#x2228; b) = &#x00AC; a &#x2227; &#x00AC; b</li><li>&#x00AC; (a &#x2227; b) = &#x00AC; a &#x2228; &#x00AC; b</li></ul></li></ul><p>Door middel van deze regels kan je elke Booleaanse algebra formule omzetten naar een andere vorm. Dit is handig als je een formule wilt vereenvoudigen of als je een formule wilt omzetten naar een andere vorm voor jouw specifieke toepassing.</p>",
+        "guides": [
+            {
+                "title": "Booleaanse algebra symbolen",
+                "content": "<p>Booleaanse algebra is een wiskundige notatie van logica, het gebruikt de volgende symbolen:</p><table style='border-collapse: collapse; text-align: center;'><tr><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Logische poort</th><th style='border-bottom: 1px solid black; padding: 4px; padding-right: 16px;'>Logisch symbool</th></tr><tr><td style='padding: 4px;'>NOT</td><td style='padding: 4px;'>&#x00AC; a</td></tr><tr><td style='padding: 4px;'>AND</td><td style='padding: 4px;'>a &#x2227; b</td></tr><tr><td style='padding: 4px;'>OR</td><td style='padding: 4px;'>a &#x2228; b</td></tr><tr><td style='padding: 4px;'>XOR</td><td style='padding: 4px;'>a &#x2295; b</td></tr></table>"
+            },
+            {
+                "title": "Booleaanse algebra regels",
+                "content": "<p>Booleaanse algebra formules kunnen omgeschreven worden met de volgende regels:</p><ul><li>Commutativiteit: <ul><li>a &#x2227; b = b &#x2227; a</li><li>a &#x2228; b = b &#x2228; a</li></ul></li><li>Associativiteit: <ul><li>(a &#x2227; b) &#x2227; c = a &#x2227; (b &#x2227; c)</li><li>(a &#x2228; b) &#x2228; c = a &#x2228; (b &#x2228; c)</li></ul></li><li>Distributiviteit: <ul><li>a &#x2227; (b &#x2228; c) = (a &#x2227; b) &#x2228; (a &#x2227; c)</li><li>a &#x2228; (b &#x2227; c) = (a &#x2228; b) &#x2227; (a &#x2228; c)</li></ul></li><li>Absorptie: <ul><li>a &#x2227; (a &#x2228; b) = a</li><li>a &#x2228; (a &#x2227; b) = a</li></ul></li><li>Complement: <ul><li>a &#x2227; &#x00AC; a = 0</li><li>a &#x2228; &#x00AC; a = 1</li></ul></li><li>Regels van De Morgan: <ul><li>&#x00AC; (a &#x2228; b) = &#x00AC; a &#x2227; &#x00AC; b</li><li>&#x00AC; (a &#x2227; b) = &#x00AC; a &#x2228; &#x00AC; b</li></ul></li></ul>"
+            }
+        ]
+    },
+    {
+        "title": "Booleaanse formule opstellen",
+        "description": "In dit level maak je van een redelijk eenvoudig circuit de bijbehorende Booleaanse functie. Sleep de elementen naar de juiste plek om de Booleaanse functie te maken.\n\nTip: Probeer poort voor poort de formule op te stellen. Begin met de poorten die direct de uitgang bepalen en werk zo naar de ingangen toe.",
+        "number": 9,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Booleaanse algebra"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "boolean_function",
+        "challenge": false,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false, false],
+            [false, false, true,  false],
+            [false, true,  false, true],
+            [false, true,  true,  false],
+            [true,  false, false, true],
+            [true,  false, true,  false],
+            [true,  true,  false, false],
+            [true,  true,  true,  false]
+        ],
+        "boolean_function": "p = ((a ^ b) & !c",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"], 
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "not_c",
+                        "inputs": ["c"], 
+                        "type": "NOT"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b_and_not_c",
+                        "inputs": ["a_xor_b", "not_c"], 
+                        "type": "AND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_xor_b_and_not_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "Complexe Booleaanse formule opstellen",
+        "description": "In dit level maak je van een complex circuit de bijbehorende Booleaanse functie. Let op, dit circuit is een stuk groter dan de vorige en kan onoverzichtelijk worden. Probeer het in stukjes op te delen en begin met de poorten die direct de uitgang bepalen. Pen en papier kunnen hierbij handig zijn!",
+        "number": 10,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Booleaanse formule opstellen"],
+        "level_type": "Exercise",
+        "start_type": "graphical",
+        "end_type": "boolean_function",
+        "challenge": true,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "c", "d"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false, false, false],
+            [false, false, false, true,  false],
+            [false, false, true,  false, false],
+            [false, false, true,  true,  false],
+            [false, true,  false, false, true],
+            [false, true,  false, true,  false],
+            [false, true,  true,  false, false],
+            [false, true,  true,  true,  false],
+            [true,  false, false, false, true],
+            [true,  false, false, true,  false],
+            [true,  false, true,  false, true],
+            [true,  false, true,  true,  true],
+            [true,  true,  false, false, false],
+            [true,  true,  false, true,  false],
+            [true,  true,  true,  false, true],
+            [true,  true,  true,  true,  true]
+        ],
+        "boolean_function": "p = ((a ^ b) & !(c | d)) | (a & c)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                },
+                {
+                    "name": "d",
+                    "label": "d" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["a", "b"], 
+                        "type": "XOR"
+                    },
+                    {
+                        "name": "c_nor_d",
+                        "inputs": ["c", "d"], 
+                        "type": "NOR"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b_and_c_nor_d",
+                        "inputs": ["a_xor_b", "c_nor_d"], 
+                        "type": "AND"
+                    },
+                    {
+                        "name": "a_and_c",
+                        "inputs": ["a", "c"], 
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b_and_c_nor_d_or_a_and_c",
+                        "inputs": ["a_xor_b_and_c_nor_d", "a_and_c"], 
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_xor_b_and_c_nor_d_or_a_and_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 120
+    },
+    {
+        "title": "Booleaanse formule lezen",
+        "description": "In dit level moet je een eenvoudige Booleaanse formule lezen en de waarheidstabel opstellen. Dit is een goede oefening om te kijken of je de Booleaanse algebra onder de knie hebt.\n\nTip: Ga regel voor regel door de waarheidstabel en vul de waarde in de formule in.",
+        "number": 11,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Booleaanse algebra"],
+        "level_type": "Exercise",
+        "start_type": "boolean_function",
+        "end_type": "truth_table",
+        "challenge": false,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false, false],
+            [false, false, true, true],
+            [false, true, false, true],
+            [false, true, true, false],
+            [true, false, false, true],
+            [true, false, true, true],
+            [true, true, false, true],
+            [true, true, true, true]
+        ],
+        "boolean_function": "p = a | (b ^ c)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "b_xor_c",
+                        "inputs": ["b", "c"],
+                        "type": "XOR"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_or_b_xor_c",
+                        "inputs": ["a", "b_xor_c"],
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_or_b_xor_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "Complexe Booleaanse formule lezen",
+        "description": "In dit level moet je een complexe Booleaanse formule lezen en de bijbehorende waarheidstabel opstellen. Net als bij een wiskundige formule is het het makkelijkst om van binnen naar buiten de haakjes weg te werken.\n\nTip: Werk net als de vorige opdracht regel voor regel door de waarheidstabel en bereken de bijbehorende waarde van p",
+        "number": 12,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Booleaanse formule lezen"],
+        "level_type": "Exercise",
+        "start_type": "boolean_function",
+        "end_type": "truth_table",
+        "challenge": true,
+        "gates": ["AND", "OR", "NOT", "XOR", "NAND", "NOR", "XNOR"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false, true],
+            [false, false, true, true],
+            [false, true, false, true],
+            [false, true, true, false],
+            [true, false, false, false],
+            [true, false, true, true],
+            [true, true, false, false],
+            [true, true, true, true]
+        ],
+        "boolean_function": "p = (a & c) | !(a | (b & c))",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_and_c",
+                        "inputs": ["a", "c"],
+                        "type": "AND"
+                    },
+                    {
+                        "name": "b_and_c",
+                        "inputs": ["b", "c"],
+                        "type": "AND"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_or_b_and_c",
+                        "inputs": ["a", "b_and_c"],
+                        "type": "NOR"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_c_or_not_a_or_b_and_c",
+                        "inputs": ["a_and_c", "not_a_or_b_and_c"],
+                        "type": "OR"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_c_or_not_a_or_b_and_c"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 120
+    }
+]

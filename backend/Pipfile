@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-debug-toolbar = "*"
+psycopg2-binary = "*"
+djangorestframework = "*"
+drf-nested-routers = "*"
+django-filter = "*"
+django-cors-headers = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+drf-yasg = "*"
+dj-database-url = "*"
+gunicorn = "*"
+sympy = "*"
+numpy = "*"
+pydot = "*"
+setuptools = "*"
+django-polymorphic = "*"
+pillow = "*"
+django-rest-polymorphic = "*"
+django-smart-selects = "*"
+django-jsonform = "*"
+django-svg-image-form-field = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

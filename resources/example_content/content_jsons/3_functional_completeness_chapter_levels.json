@@ -1,0 +1,487 @@
+[
+    {
+        "title": "Functionele volledigheid",
+        "description": "Voordat we naar complexere toepassingen gaan van logische circuits maken we een klein uitstapje naar de term 'functionele volledigheid'.",
+        "number": 0,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": [],
+        "level_type": "Information",
+        "content": "<p>Functionele volledigheid (of 'functional completeness' in het Engels) is een term die wordt gebruikt om aan te geven dat een set logische poorten 'compleet' is. Compleet betekent  dat je met poorten in deze set, alle andere poorten kan maken. Een makkelijk voorbeeld hiervan is de set {&#x00AC;, &#x2227;, &#x2228;} oftewel de NOT, AND, en OR poorten samen. Om te zien of elke poort gemaakt kan worden hoef je alleen maar te kijken of je elke mogelijke waarheidstabel met 2 inputs kan maken. Hieronder staan de formules gegeven om alle waarheidstabellen te maken met deze set:</p><ul><li>a &#x2227; &#x00AC; a</li><li>&#x00AC; (a &#x2228; b), NOR</li><li>&#x00AC; a &#x2227; b</li><li>&#x00AC; a</li><li>a &#x2227; &#x00AC; b</li><li>&#x00AC; b</li><li>(a &#x2227; &#x00AC; b) &#x2228; (&#x00AC; a &#x2227; b), XOR</li><li>&#x00AC; (a &#x2227; b), NAND</li><li>(a &#x2227; b)</li><li>(a &#x2227; b) &#x2228; (&#x00AC; a &#x2227; &#x00AC; b), XNOR</li><li>b</li><li>&#x00AC; a &#x2228; b</li><li>a</li><li>a &#x2228; &#x00AC; b</li><li>a &#x2228; b</li><li>a &#x2228; &#x00AC; a</li></ul><p>Buiten de set {&#x00AC;, &#x2227;, &#x2228;} zijn er een hoop andere sets te maken die functioneel volledig zijn. Daaronder zijn zelfs twee sets die uit maar 1 poort bestaan, namelijk de sets met alleen de NAND en alleen de NOR poort. Dit betekent dat een NAND (of NOR) poort in zijn eentje alle andere poorten kan maken.</p><p>Waarom is dit belangrijk? Dit belang komt voornamelijk vanuit fabrikanten van elektronische circuits op computer chips. Alle stroompjes op zo'n chip gaan door logische poorten heen, en als je maar 1 soort poort hoeft te maken is dat een stuk makkelijker in productie.</p><p>Om hier zelf mee te spelen gaan jullie in de komende levels met slechts de NAND poort werken en daarmee alle andere poorten maken!</p>",
+        "guides": [
+            {
+                "title": "Functionele volledigheid",
+                "content": "<p>Functionele volledigheid refereert naar de eigenschap dat je met een set aan poorten alle andere poorten kan maken. Een voorbeeld is de set {&#x00AC;, &#x2227;, &#x2228;}, maar ook de set met enkel de NAND poort is functioneel volledig.</p>"
+            }
+        ] 
+    },
+    {
+        "title": "NOT vanuit NAND",
+        "description": "Maak de NOT poort vanuit slechts NAND poorten, succes!",
+        "number": 1,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Functionele volledigheid"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, true],
+            [true, false]
+        ],
+        "boolean_function": "p = !a",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a", "a"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "not_a"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "OR vanuit NAND",
+        "description": "Maak de OR poort vanuit slechts NAND poorten, succes!",
+        "number": 2,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Functionele volledigheid"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, true],
+            [true, false, true],
+            [true, true, true]
+        ],
+        "boolean_function": "p = a | b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a", "a"],
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "not_b",
+                        "inputs": ["b", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_or_b",
+                        "inputs": ["not_a", "not_b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_or_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "AND vanuit NAND",
+        "description": "Maak de AND poort vanuit slechts NAND poorten, succes!",
+        "number": 3,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["NOT vanuit NAND"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, false],
+            [true, false, false],
+            [true, true, true]
+        ],
+        "boolean_function": "p = a & b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nand_b",
+                        "inputs": ["a", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_b",
+                        "inputs": ["a_nand_b", "a_nand_b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 20
+    },
+    {
+        "title": "NOR vanuit NAND",
+        "description": "Maak de NOR poort vanuit slechts NAND poorten, succes!",
+        "number": 4,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["OR vanuit NAND", "NOT vanuit NAND"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, false],
+            [true, false, false],
+            [true, true, false]
+        ],
+        "boolean_function": "p = !(a | b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a", "a"],
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "not_b",
+                        "inputs": ["b", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_or_b",
+                        "inputs": ["not_a", "not_b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_nor_b",
+                        "inputs": ["a_or_b", "a_or_b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_nor_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 40
+    },
+    {
+        "title": "XOR vanuit NAND",
+        "description": "Maak de XOR poort vanuit slechts NAND poorten, succes!",
+        "number": 5,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["Functionele volledigheid"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, false],
+            [false, true, true],
+            [true, false, true],
+            [true, true, false]
+        ],
+        "boolean_function": "p = a ^ b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nand_b",
+                        "inputs": ["a", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "not_a_or_b",
+                        "inputs": ["a", "a_nand_b"],
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "a_or_not_b",
+                        "inputs": ["a_nand_b", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xor_b",
+                        "inputs": ["not_a_or_b", "a_or_not_b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_xor_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "XNOR vanuit NAND",
+        "description": "Maak de XNOR poort vanuit slechts NAND poorten, succes!",
+        "number": 6,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["XOR vanuit NAND"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": false,
+        "gates": ["NAND"],
+        "inputs": ["a", "b"],
+        "outputs": ["p"],
+        "truth_table": [
+            [false, false, true],
+            [false, true, false],
+            [true, false, false],
+            [true, true, true]
+        ],
+        "boolean_function": "p = !(a ^ b)",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "not_a",
+                        "inputs": ["a", "a"],
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "not_b",
+                        "inputs": ["b", "b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_nand_b",
+                        "inputs": ["a", "b"],
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "a_or_b",
+                        "inputs": ["not_a", "not_b"],
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_xnor_b",
+                        "inputs": ["a_nand_b", "a_or_b"],
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_xnor_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 60
+    },
+    {
+        "title": "Zelfde als eerst, maar nu met alleen NAND",
+        "description": "In dit level maak je exact hetzelfde circuit als in het laatste level van het eerste hoofdstuk, maar nu door alleen maar NAND poorten te gebruiken. Dit kan door elke poort om te vormen zoals je net geleerd hebt, of door een nieuw circuit te bedenken!\n\nTip: Een NAND poort is gelijk aan een OR poort met de inverse van beide ingangen. Oftewel, a NAND b is hetzelfde als (NOT a) OR (NOT b). Dit is de Booleaanse algebra omschrijfregel van De Morgan: &#x00AC; (a &#x2227; b) is hetzelfde als &#x00AC; a &#x2228; &#x00AC; b.",
+        "number": 7,
+        "scenario_id": "scenario_id",
+        "active": true,
+        "prerequisites": ["AND vanuit NAND", "NOR vanuit NAND", "XNOR vanuit NAND"],
+        "level_type": "Exercise",
+        "start_type": "truth_table",
+        "end_type": "graphical",
+        "challenge": true,
+        "gates": ["NAND"],
+        "inputs": ["a", "b", "c"],
+        "outputs": ["p", "q"],
+        "truth_table": [
+            [false, false, false, false, true],
+            [false, false, true, false, true],
+            [false, true, false, false, true],
+            [false, true, true, false, true],
+            [true, false, false, false, false],
+            [true, false, true, true, false],
+            [true, true, false, false, true],
+            [true, true, true, true, true]
+        ],
+        "boolean_function": "p = a & c\nq = !a | b",
+        "graphical": {
+            "inputs": [
+                {
+                    "name": "a",
+                    "label": "a" 
+                },
+                {
+                    "name": "b",
+                    "label": "b" 
+                },
+                {
+                    "name": "c",
+                    "label": "c" 
+                }
+            ],
+            "gates": [
+                [
+                    {
+                        "name": "a_nand_c",
+                        "inputs": ["a", "c"], 
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "a_nand_b",
+                        "inputs": ["a", "b"], 
+                        "type": "NAND"
+                    }
+                ],
+                [
+                    {
+                        "name": "a_and_c",
+                        "inputs": ["not_a_nand_c", "not_a_nand_c"], 
+                        "type": "NAND"
+                    },
+                    {
+                        "name": "not_a_or_a_and_b",
+                        "inputs": ["a", "a_nand_b"], 
+                        "type": "NAND"
+                    }
+                ]
+            ],
+            "outputs": [
+                {
+                    "name": "p",
+                    "label": "p",
+                    "input": "a_and_c"
+                },
+                {
+                    "name": "q",
+                    "label": "q",
+                    "input": "not_a_or_a_and_b"
+                }
+            ]
+        },
+        "code": "None",
+        "time_goal": 120
+    }
+]
