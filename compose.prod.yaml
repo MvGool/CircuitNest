@@ -27,10 +27,9 @@ services:
       - static_volume:/home/app/web/staticfiles
       - media_volume:/home/app/web/mediafiles
     networks:
-      - nginx-proxy_reverse-proxy
       - circuitnest
     environment:
-      - VIRTUAL_HOST=circuitnest.mazyar.co.nl
+      - VIRTUAL_HOST=server.name
     depends_on:
       - backend
 
@@ -50,5 +49,3 @@ volumes:
 
 networks:
   circuitnest:
-  nginx-proxy_reverse-proxy:
-    external: true

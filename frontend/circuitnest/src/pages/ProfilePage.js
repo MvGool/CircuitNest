@@ -15,7 +15,7 @@ function ProfilePage() {
 	// Get gamification context
 	const gamified = useContext(GamificationContext)
 
-	if (!gamified) {
+	if (gamified === false) {
 		window.location.href = '/'
 	}
 

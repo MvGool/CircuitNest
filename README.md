@@ -21,6 +21,8 @@ or the production environment (preferably on a server):
 ```
 docker compose -f compose.prod.yaml up
 ```
+When composing the production server make sure to edit the `server.name` in both the compose.prod.yaml and frontend/nginx.conf files. 
+
 The environment should now be accessible on your machine. This would be either `localhost` for the development environment or the server IP address for the production environment. 
 
 ## Usage
